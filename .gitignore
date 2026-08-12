@@ -1,0 +1,45 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# Maven
+target/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Docker
+docker-data/
+
+# Kubernetes
+*.kubeconfig
+
+# Temporary
+tmp/
+temp/
+
+# Build
+build/
+
+# Java
+*.class
+
+# Generated
+out/
