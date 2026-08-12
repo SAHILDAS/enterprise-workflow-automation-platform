@@ -104,4 +104,13 @@ public class Workflow {
         this.status = WorkflowStatus.ARCHIVED;
         this.updatedAt = Instant.now();
     }
+
+    public void setName(String name) {
+    this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
 }

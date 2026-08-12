@@ -45,3 +45,16 @@ springdoc:
     tagsSorter: alpha
     display-request-duration: true
     try-it-out-enabled: true
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+workflow:
+  kafka:
+    topics:
+      lifecycle-events: workflow.lifecycle.events

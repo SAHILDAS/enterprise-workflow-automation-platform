@@ -42,3 +42,22 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui
+
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    consumer:
+      group-id: execution-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+      properties:
+        spring.json.trusted.packages: "*"
+
+workflow:
+  kafka:
+    topics:
+      lifecycle-events: workflow.lifecycle.events
