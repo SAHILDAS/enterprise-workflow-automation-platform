@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import java.time.Instant;
 import java.util.UUID;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 @Entity
 @Table(name = "step_executions")
 public class StepExecution {
@@ -36,9 +39,11 @@ public class StepExecution {
     @Column(name = "completed_at")
     private Instant completedAt;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "input_payload", columnDefinition = "jsonb")
     private String inputPayload;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "output_payload", columnDefinition = "jsonb")
     private String outputPayload;
 

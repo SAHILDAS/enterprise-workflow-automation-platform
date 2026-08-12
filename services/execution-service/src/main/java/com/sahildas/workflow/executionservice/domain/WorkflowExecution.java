@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 @Entity
 @Table(name = "workflow_executions")
 public class WorkflowExecution {
@@ -34,9 +37,11 @@ public class WorkflowExecution {
     @Column(name = "initiated_by", length = 100)
     private String initiatedBy;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "input_payload", columnDefinition = "jsonb")
     private String inputPayload;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "output_payload", columnDefinition = "jsonb")
     private String outputPayload;
 
