@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: execution-service
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+info:
+  application:
+    name: Execution Service
+    version: 1.0.0-SNAPSHOT

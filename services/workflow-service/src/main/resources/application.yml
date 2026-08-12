@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: workflow-service
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+info:
+  application:
+    name: Workflow Service
+    version: 1.0.0-SNAPSHOT
