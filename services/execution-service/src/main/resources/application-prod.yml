@@ -37,3 +37,12 @@ management:
     health:
       probes:
         enabled: true
+
+  health:
+    kafka:
+      enabled: false
+
+workflow:
+  kafka:
+    consumer:
+      enabled: false
