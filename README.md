@@ -121,6 +121,16 @@ Key documents:
 * Free Cloud Deployment
 * Documentation & Portfolio Polish
 
+
+## Local Infrastructure
+
+- PostgreSQL: `localhost:5433`
+- Redis: `localhost:6380`
+- Kafka Broker: `localhost:9092`
+- Kafka UI: `http://localhost:8085`
+
+See `docs/infrastructure/kafka-local-setup.md` for the complete Kafka architecture, dual-listener configuration, troubleshooting steps, and verification commands.
+
 ## License
 
 MIT License

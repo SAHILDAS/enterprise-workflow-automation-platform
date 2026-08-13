@@ -3,9 +3,37 @@ spring:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
 
   kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    consumer:
+      group-id: execution-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.sahildas.workflow.executionservice.events.WorkflowActivatedEvent
+        spring.json.use.type.headers: false
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+logging:
+  level:
+    root: INFO
+    com.sahildas.workflow: INFO
+    org.springframework.web: INFO
 
 server:
   port: ${PORT:8082}
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true

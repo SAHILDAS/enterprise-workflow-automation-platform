@@ -3,9 +3,9 @@ spring:
     name: workflow-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/workflow_db
-    username: workflow_user
-    password: workflow_password
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5433/workflow_db}
+    username: ${DATABASE_USERNAME:workflow_user}
+    password: ${DATABASE_PASSWORD:workflow_password}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -21,7 +21,7 @@ spring:
     locations: classpath:db/migration
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -29,7 +29,7 @@ spring:
         spring.json.add.type.headers: false
 
 server:
-  port: 8081
+  port: ${SERVER_PORT:8081}
 
 management:
   endpoints:
