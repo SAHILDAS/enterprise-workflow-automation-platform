@@ -33,3 +33,7 @@ management:
     health:
       probes:
         enabled: true
+
+  health:
+    kafka:
+      enabled: false
