@@ -23,6 +23,18 @@ spring:
     baseline-on-migrate: true
     baseline-version: 1
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: execution-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.sahildas.workflow.executionservice.events.WorkflowActivatedEvent
+        spring.json.use.type.headers: false
+
 server:
   port: 8082
 
@@ -42,20 +54,6 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui
-
-
-spring:
-  kafka:
-    bootstrap-servers: localhost:9092
-
-    consumer:
-      group-id: execution-service
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-
-      properties:
-        spring.json.trusted.packages: "*"
 
 workflow:
   kafka:
